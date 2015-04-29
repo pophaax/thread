@@ -19,4 +19,4 @@ $(FILE_SYS) : $(SOURCES_SYS) $(HEADERS_SYS)
 	$(CC) $(SOURCES_SYS) $(FLAGS) $(LIBS) -c -o $(FILE_SYS)
 
 clean :
-	rm -f $(FILE)
+	rm -f $(FILE) $(FILE_SYS)

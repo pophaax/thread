@@ -2,7 +2,7 @@
 #define SYSTEM_STATE_H
 
 #include <mutex>
-#include "../models/SystemStateModel.h"
+#include "models/SystemStateModel.h"
 
 
 class SystemState {

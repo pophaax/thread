@@ -8,16 +8,19 @@ ExternalCommand::ExternalCommand(time_t timestamp, bool autorun, int rudderComma
   m_sailCommand = sailCommand;
 }
 
-void ExternalCommand::setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand) {
+bool ExternalCommand::setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand) {
   // critical section (exclusive access by locking mtx):
+  bool isNewData = false;
   mtx.lock();
   if(m_timestamp < timestamp) {
       m_timestamp = timestamp;
       m_autorun = autorun;
       m_rudderCommand = rudderCommand;
       m_sailCommand = sailCommand;
+      isNewData = true;
   }
   mtx.unlock();
+  return isNewData;
 }
 
 bool ExternalCommand::getAutorun() {

@@ -10,7 +10,7 @@ public:
 	ExternalCommand(time_t timestamp, bool autorun, int rudderCommand, int sailCommand);
 	~ExternalCommand() {};
 
-	void setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand);
+	bool setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand);
 	
 	bool getAutorun();
 	int getRudderCommand();

@@ -12,13 +12,13 @@ bool ExternalCommand::setData(std::string timestamp, bool autorun, int rudderCom
   // critical section (exclusive access by locking mtx):
   bool isNewData = false;
   mtx.lock();
-  if(m_timestamp < timestamp) {
-      m_timestamp = timestamp;
-      m_autorun = autorun;
-      m_rudderCommand = rudderCommand;
-      m_sailCommand = sailCommand;
-      isNewData = true;
-  }
+ // if(m_timestamp < timestamp) {
+    m_timestamp = timestamp;
+    m_autorun = autorun;
+    m_rudderCommand = rudderCommand;
+    m_sailCommand = sailCommand;
+    isNewData = true;
+ // }
   mtx.unlock();
   return isNewData;
 }

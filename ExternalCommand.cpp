@@ -1,14 +1,14 @@
 #include "ExternalCommand.h"
 
 
-ExternalCommand::ExternalCommand(time_t timestamp, bool autorun, int rudderCommand, int sailCommand) {
+ExternalCommand::ExternalCommand(std::string timestamp, bool autorun, int rudderCommand, int sailCommand) {
   m_timestamp = timestamp;
   m_autorun = autorun;
   m_rudderCommand = rudderCommand;
   m_sailCommand = sailCommand;
 }
 
-bool ExternalCommand::setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand) {
+bool ExternalCommand::setData(std::string timestamp, bool autorun, int rudderCommand, int sailCommand) {
   // critical section (exclusive access by locking mtx):
   bool isNewData = false;
   mtx.lock();

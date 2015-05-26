@@ -2,15 +2,15 @@
 #define EXTERNAL_COMMAND_H
 
 #include <mutex>
-#include <ctime>
+#include <string>
 
 
 class ExternalCommand {
 public:
-	ExternalCommand(time_t timestamp, bool autorun, int rudderCommand, int sailCommand);
+	ExternalCommand(std::string timestamp, bool autorun, int rudderCommand, int sailCommand);
 	~ExternalCommand() {};
 
-	bool setData(time_t timestamp, bool autorun, int rudderCommand, int sailCommand);
+	bool setData(std::string timestamp, bool autorun, int rudderCommand, int sailCommand);
 	
 	bool getAutorun();
 	int getRudderCommand();
@@ -19,7 +19,7 @@ public:
 private:
 	std::mutex mtx; // mutex for critical section
 
-	time_t m_timestamp;
+	std::string m_timestamp;
 	bool m_autorun;
 	int m_rudderCommand;
 	int m_sailCommand;

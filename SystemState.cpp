@@ -34,3 +34,17 @@ void SystemState::setCompassModel(CompassModel compassModel)
 	m_model.compassModel = compassModel;
 	m_mutex.unlock();
 }
+
+void SystemState::setRudder(int value)
+{
+	m_mutex.lock();
+	m_model.rudder = value;
+	m_mutex.unlock();
+}
+
+void SystemState::setSail(int value)
+{
+	m_mutex.lock();
+	m_model.sail = value;
+	m_mutex.unlock();
+}

@@ -7,7 +7,7 @@ void SystemState::setData(SystemStateModel model)
 	m_mutex.unlock();
 }
 
-void SystemState::getData(SystemStateModel *model)
+SystemState::getData(SystemStateModel *model)
 {
 	m_mutex.lock();
 	*model = m_model;

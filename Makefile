@@ -10,7 +10,11 @@ SOURCES_SYS = SystemState.cpp
 HEADERS_SYS = SystemState.h
 FILE_SYS = SystemState.o
 
-all : $(FILE) $(FILE_SYS)
+SOURCES_RAII = ThreadRAII.cpp
+HEADERS_RAII = ThreadRAII.h
+FILE_RAII = ThreadRAII.o
+
+all : $(FILE) $(FILE_SYS) $(FILE_RAII)
 
 $(FILE) : $(SOURCES) $(HEADERS)
 	$(CC) $(SOURCES) $(FLAGS) $(LIBS) -c -o $(FILE)
@@ -18,5 +22,8 @@ $(FILE) : $(SOURCES) $(HEADERS)
 $(FILE_SYS) : $(SOURCES_SYS) $(HEADERS_SYS)
 	$(CC) $(SOURCES_SYS) $(FLAGS) $(LIBS) -c -o $(FILE_SYS)
 
+$(FILE_RAII) : $(SOURCES_RAII) $(HEADERS_RAII)
+	$(CC) $(SOURCES_RAII) $(FLAGS) $(LIBS) -c -o $(FILE_RAII)
+
 clean :
-	rm -f $(FILE) $(FILE_SYS)
+	rm -f $(FILE) $(FILE_SYS) $(FILE_RAII)

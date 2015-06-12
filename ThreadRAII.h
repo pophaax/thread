@@ -1,6 +1,8 @@
 #ifndef __THREADRAII_H__
 #define __THREADRAII_H__
 
+#include <thread>
+
 class ThreadRAII {
 public:
 	enum class DtorAction { join, detach };

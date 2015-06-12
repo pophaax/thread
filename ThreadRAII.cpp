@@ -4,12 +4,12 @@
 
 	
 ThreadRAII::ThreadRAII(std::thread&& t, DtorAction a)
-: action(a), t(std::move(t)){}
+: m_action(a), m_t(std::move(t)){}
 
 ThreadRAII::~ThreadRAII()
 {
-	if(t.joinable()){
-		if(action == DtorAction::join){
+	if(m_t.joinable()){
+		if(m_action == DtorAction::join){
 			m_t.join();
 		}
 		else{

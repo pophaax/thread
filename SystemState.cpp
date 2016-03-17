@@ -2,49 +2,42 @@
 
 void SystemState::setData(SystemStateModel model)
 {
-	m_mutex.lock();
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model = model;
-	m_mutex.unlock();
 }
 
 void SystemState::getData(SystemStateModel& model)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	model = m_model;
-	m_mutex.unlock();
 }
 
 void SystemState::setGPSModel(GPSModel gpsModel)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.gpsModel = gpsModel;
-	m_mutex.unlock();
 }
 
 void SystemState::setWindsensorModel(WindsensorModel windsensorModel)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.windsensorModel = windsensorModel;
-	m_mutex.unlock();
 }
 
 void SystemState::setCompassModel(CompassModel compassModel)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.compassModel = compassModel;
-	m_mutex.unlock();
 }
 
 void SystemState::setRudder(int value)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.rudder = value;
-	m_mutex.unlock();
 }
 
 void SystemState::setSail(int value)
-{
-	m_mutex.lock();
+{	
+	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.sail = value;
-	m_mutex.unlock();
 }

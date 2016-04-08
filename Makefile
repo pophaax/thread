@@ -1,5 +1,5 @@
 CC = g++
-FLAGS = -Wall -pedantic -Werror -std=c++14
+FLAGS = -g -Wall -pedantic -Werror -std=c++14
 LIBS = -lpthread -lwiringPi -lrt -I$(SAILINGROBOTS_HOME)
 
 SOURCES = ExternalCommand.cpp

@@ -18,6 +18,7 @@ public:
 	void setCompassModel(CompassModel compassModel);
 	void setRudder(int value);
 	void setSail(int value);
+	void setPressure(int value);
 
 private:
 	std::mutex m_mutex; // mutex for critical section

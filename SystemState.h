@@ -16,9 +16,9 @@ public:
 	void setGPSModel(GPSModel gpsModel);
 	void setWindsensorModel(WindsensorModel windsensorModel);
 	void setCompassModel(CompassModel compassModel);
+	void setAnalogArduinoModel(AnalogArduinoModel arduinoModel);
 	void setRudder(int value);
 	void setSail(int value);
-	void setPressure(int value);
 
 private:
 	std::mutex m_mutex; // mutex for critical section

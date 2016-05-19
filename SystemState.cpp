@@ -26,6 +26,11 @@ void SystemState::setCompassModel(CompassModel compassModel){
 	m_model.compassModel = compassModel;
 }
 
+void SystemState::setAnalogArduinoModel(AnalogArduinoModel arduinoModel) {
+	std::lock_guard<std::mutex> lock(m_mutex);
+	m_model.arduinoModel = arduinoModel;
+}
+
 void SystemState::setRudder(int value){
 	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.rudder = value;
@@ -34,9 +39,4 @@ void SystemState::setRudder(int value){
 void SystemState::setSail(int value){
 	std::lock_guard<std::mutex> lock(m_mutex);
 	m_model.sail = value;
-}
-
-void SystemState::setPressure(int value) {
-	std::lock_guard<std::mutex> lock(m_mutex);
-	m_model.pressure = value;
 }
